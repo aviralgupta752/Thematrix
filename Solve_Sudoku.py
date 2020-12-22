@@ -118,7 +118,7 @@ if __name__=="__main__":
 
 	model.compile(optimizer="Adam", loss="categorical_crossentropy", metrics=["accuracy"])
 
-	(puzzle, warped) = read_image(cv2.imread("pic1.jpeg"), False)
+	(puzzle, warped) = read_image(cv2.imread("pic6.jpeg"), False)
 	board = np.zeros((9,9), dtype="int")
 	stepX = warped.shape[1]//9
 	stepY = warped.shape[0]//9
@@ -170,6 +170,19 @@ if __name__=="__main__":
 	sudoku_string = board_to_string(board)
 	sudoku_string = list(sudoku_string)
 
+	while(True):
+		print("Enter option:")
+		print("1. Replace value")
+		print("2. Break")
+		opt = int(raw_input())
+
+		if(opt==1):
+			r,c,value =map(int, raw_input("Enter i, j, value : ").split())
+			sudoku_string[r*9+c]=str(value)
+			print_sudoku(string_to_board(''.join(sudoku_string)))
+		else:
+			break
+
 	try:
 		sudoku_string = ''.join(sudoku_string)
 		sudoku = Sudoku(sudoku_string)
@@ -199,14 +212,3 @@ if __name__=="__main__":
 
 	except:
 	 	print("Error")
-
-# cap = cv2.VideoCapture(0)
-	# while(True):
-	# 	image = cap.read()[1]
-	# 	image = imutils.resize(image, width=600)
-	# 	(puzzle, warped) = read_image(image, True)
-	# 	# cv2.imshow("image", image)
-	# 	if cv2.waitKey(1) & 0xFF == ord('q'):
-	# 		break
-
-	# cap.release()
