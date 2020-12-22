@@ -5,7 +5,7 @@ This program brings out the real fun in solving sudoku. Often the people who lov
 The program takes an image, removes noise from it by blurring, finds the sudoku board in it using opencv and skimage, divide the board into cells, identifies the digit in each cell using convolutional neural nets and shows the solution on the original image.
 
 <h3> For installing all the libraries used: </h3>
-```
+
 pip install opencv-python
 
 pip install numpy
@@ -20,7 +20,8 @@ pip install h5py
 
 pip install matplotlib
 
-pip install scikit-image ```
+pip install scikit-image
+
 
 If any of the above pips doesn't work, please google the error.
 
